@@ -1,0 +1,36 @@
+Source: ubuntu-rockchip-settings
+Section: misc
+Priority: optional
+Maintainer: clsx524 <clsx524@gmail.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+
+Package: ubuntu-rockchip-settings
+Architecture: all
+Depends: ${misc:Depends},
+         u-boot-menu,
+         flash-kernel
+Description: Ubuntu system settings for Rockchip devices
+ Default system configuration for Ubuntu on Rockchip single-board computers.
+ Includes network defaults, boot configuration, and system settings.
+
+Package: ubuntu-server-rockchip
+Architecture: all
+Depends: ${misc:Depends},
+         ubuntu-rockchip-settings,
+         linux-rockchip,
+         ubuntu-server,
+         flash-kernel
+Description: Ubuntu Server for Rockchip devices
+ Meta-package for Ubuntu Server on Rockchip single-board computers.
+
+Package: ubuntu-desktop-rockchip
+Architecture: all
+Depends: ${misc:Depends},
+         ubuntu-rockchip-settings,
+         linux-rockchip,
+         ubuntu-desktop,
+         flash-kernel
+Description: Ubuntu Desktop for Rockchip devices
+ Meta-package for Ubuntu Desktop on Rockchip single-board computers.
