@@ -54,7 +54,7 @@ jobs:
           TAG="v${VERSION//\~/-}"
           for DEB_URL in $(gh release view "${TAG}" \
               --repo ${{ github.repository }} \
-              --json assets -q '.assets[].browserDownloadUrl'); do
+              --json assets -q '.assets[].url'); do
             gh workflow run ingest.yml \
               --repo clsx524/ubuntu-rockchip-apt \
               --field deb_url="${DEB_URL}" \
