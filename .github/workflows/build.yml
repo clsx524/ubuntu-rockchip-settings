@@ -40,7 +40,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION=$(dpkg-parsechangelog -S Version)
-          TAG="v${VERSION}"
+          TAG="v${VERSION//\~/-}"
           gh release create "${TAG}" debs/*.deb \
             --title "ubuntu-rockchip-settings ${VERSION}" \
             --notes "Settings and meta-packages for questing" \
@@ -51,7 +51,7 @@ jobs:
           GH_TOKEN: ${{ secrets.APT_REPO_TOKEN }}
         run: |
           VERSION=$(dpkg-parsechangelog -S Version)
-          TAG="v${VERSION}"
+          TAG="v${VERSION//\~/-}"
           for deb in debs/*.deb; do
             FILENAME=$(basename "${deb}")
             DEB_URL="https://github.com/${{ github.repository }}/releases/download/${TAG}/${FILENAME}"
