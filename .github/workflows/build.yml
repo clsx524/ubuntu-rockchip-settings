@@ -52,9 +52,9 @@ jobs:
         run: |
           VERSION=$(dpkg-parsechangelog -S Version)
           TAG="v${VERSION//\~/-}"
-          for deb in debs/*.deb; do
-            FILENAME=$(basename "${deb}")
-            DEB_URL="https://github.com/${{ github.repository }}/releases/download/${TAG}/${FILENAME}"
+          for DEB_URL in $(gh release view "${TAG}" \
+              --repo ${{ github.repository }} \
+              --json assets -q '.assets[].browserDownloadUrl'); do
             gh workflow run ingest.yml \
               --repo clsx524/ubuntu-rockchip-apt \
               --field deb_url="${DEB_URL}" \
