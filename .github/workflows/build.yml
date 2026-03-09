@@ -18,16 +18,19 @@ jobs:
           sudo apt-get install -y build-essential debhelper devscripts
 
       - name: Build packages
-        run: dpkg-buildpackage -us -uc -b
+        run: |
+          dpkg-buildpackage -us -uc -b
+          mkdir -p debs
+          mv ../*.deb debs/
 
       - name: List packages
-        run: ls -lh ../*.deb
+        run: ls -lh debs/
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: rockchip-settings-debs
-          path: ../*.deb
+          path: debs/
           retention-days: 30
 
       - name: Create GitHub Release
@@ -36,7 +39,7 @@ jobs:
         run: |
           VERSION=$(dpkg-parsechangelog -S Version)
           TAG="v${VERSION}"
-          gh release create "${TAG}" ../*.deb \
+          gh release create "${TAG}" debs/*.deb \
             --title "ubuntu-rockchip-settings ${VERSION}" \
             --notes "Settings and meta-packages for questing" \
             --repo ${{ github.repository }} || true
@@ -47,7 +50,7 @@ jobs:
         run: |
           VERSION=$(dpkg-parsechangelog -S Version)
           TAG="v${VERSION}"
-          for deb in ../*.deb; do
+          for deb in debs/*.deb; do
             FILENAME=$(basename "${deb}")
             DEB_URL="https://github.com/${{ github.repository }}/releases/download/${TAG}/${FILENAME}"
             gh workflow run ingest.yml \
