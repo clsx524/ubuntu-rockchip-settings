@@ -19,7 +19,6 @@ Package: ubuntu-server-rockchip
 Architecture: all
 Depends: ${misc:Depends},
          ubuntu-rockchip-settings,
-         linux-rockchip,
          ubuntu-server,
          flash-kernel
 Description: Ubuntu Server for Rockchip devices
@@ -29,7 +28,6 @@ Package: ubuntu-desktop-rockchip
 Architecture: all
 Depends: ${misc:Depends},
          ubuntu-rockchip-settings,
-         linux-rockchip,
          ubuntu-desktop,
          flash-kernel
 Description: Ubuntu Desktop for Rockchip devices
