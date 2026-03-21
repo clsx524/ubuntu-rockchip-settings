@@ -59,4 +59,5 @@ jobs:
               --repo clsx524/ubuntu-rockchip-apt \
               --field deb_url="${DEB_URL}" \
               --field suite=questing
+            sleep 25
           done
