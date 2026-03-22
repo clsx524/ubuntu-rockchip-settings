@@ -24,6 +24,14 @@ Depends: ${misc:Depends},
 Description: Ubuntu Server for Rockchip devices
  Meta-package for Ubuntu Server on Rockchip single-board computers.
 
+Package: linux-rockchip
+Architecture: arm64
+Depends: ${misc:Depends},
+         linux-image-6.1.0-1001-rockchip,
+         linux-modules-6.1.0-1001-rockchip
+Description: Linux kernel meta-package for Rockchip devices
+ Meta-package pointing to the current Rockchip kernel.
+
 Package: ubuntu-desktop-rockchip
 Architecture: all
 Depends: ${misc:Depends},
