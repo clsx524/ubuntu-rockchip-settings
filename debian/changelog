@@ -1,3 +1,9 @@
+ubuntu-rockchip-settings (1.4~questing) questing; urgency=medium
+
+  * Drop flash-kernel dependency — hook purges it, cascading removal of our packages
+
+ -- clsx524 <clsx524@gmail.com>  Sun, 22 Mar 2026 00:00:00 +0000
+
 ubuntu-rockchip-settings (1.3~questing) questing; urgency=medium
 
   * linux-rockchip: use Architecture: all (built on amd64 runner)

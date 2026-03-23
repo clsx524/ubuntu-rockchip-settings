@@ -9,8 +9,7 @@ Rules-Requires-Root: no
 Package: ubuntu-rockchip-settings
 Architecture: all
 Depends: ${misc:Depends},
-         u-boot-menu,
-         flash-kernel
+         u-boot-menu
 Description: Ubuntu system settings for Rockchip devices
  Default system configuration for Ubuntu on Rockchip single-board computers.
  Includes network defaults, boot configuration, and system settings.
@@ -19,8 +18,7 @@ Package: ubuntu-server-rockchip
 Architecture: all
 Depends: ${misc:Depends},
          ubuntu-rockchip-settings,
-         ubuntu-server,
-         flash-kernel
+         ubuntu-server
 Description: Ubuntu Server for Rockchip devices
  Meta-package for Ubuntu Server on Rockchip single-board computers.
 
@@ -34,7 +32,6 @@ Package: ubuntu-desktop-rockchip
 Architecture: all
 Depends: ${misc:Depends},
          ubuntu-rockchip-settings,
-         ubuntu-desktop,
-         flash-kernel
+         ubuntu-desktop
 Description: Ubuntu Desktop for Rockchip devices
  Meta-package for Ubuntu Desktop on Rockchip single-board computers.
