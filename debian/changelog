@@ -1,3 +1,10 @@
+ubuntu-rockchip-settings (1.7~questing) questing; urgency=medium
+
+  * Add datasource_list: [NoCloud, None] so cloud-init finds its datasource
+    immediately instead of timing out trying EC2/GCE/Azure (fixes SSH on first boot)
+
+ -- clsx524 <clsx524@gmail.com>  Mon, 24 Mar 2026 00:00:00 +0000
+
 ubuntu-rockchip-settings (1.6~questing) questing; urgency=medium
 
   * Remove 99-disable-network-config.cfg and custom netplan — let cloud-init
