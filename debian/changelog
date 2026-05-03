@@ -1,3 +1,9 @@
+ubuntu-rockchip-settings (2.0~resolute) resolute; urgency=medium
+
+  * Initial release for Ubuntu 26.04 LTS (Resolute Raccoon)
+
+ -- clsx524 <clsx524@gmail.com>  Sat, 03 May 2026 00:00:00 +0000
+
 ubuntu-rockchip-settings (1.7~questing) questing; urgency=medium
 
   * Add datasource_list: [NoCloud, None] so cloud-init finds its datasource

@@ -43,7 +43,7 @@ jobs:
           TAG="v${VERSION//\~/-}"
           gh release create "${TAG}" debs/*.deb \
             --title "ubuntu-rockchip-settings ${VERSION}" \
-            --notes "Settings and meta-packages for questing" \
+            --notes "Settings and meta-packages for resolute" \
             --repo ${{ github.repository }} || true
 
       - name: Ingest into apt repo
@@ -58,6 +58,6 @@ jobs:
             gh workflow run ingest.yml \
               --repo clsx524/ubuntu-rockchip-apt \
               --field deb_url="${DEB_URL}" \
-              --field suite=questing
+              --field suite=resolute
             sleep 25
           done
