@@ -43,14 +43,12 @@ Package: ubuntu-desktop-rockchip
 Architecture: all
 Depends: ${misc:Depends},
          ubuntu-rockchip-settings,
-         ubuntu-desktop,
-         openssh-server,
-         udisks2,
-         fwupd,
-         modemmanager,
-         network-manager
+         ubuntu-desktop
 Description: Ubuntu Desktop for Rockchip devices
  Meta-package for Ubuntu Desktop on Rockchip single-board computers.
- Does not depend on cloud-init: the desktop-preinstalled livecd-rootfs hook
- purges cloud-init in favour of oem-config-gtk for first-boot user creation,
- and a hard Depends would cascade-remove this meta-package.
+ Intentionally minimal Depends: the desktop-preinstalled livecd-rootfs hook
+ explicitly purges cloud-init, flash-kernel and fwupd (desktop uses
+ oem-config / fwupd is unsupported on this hw), and any of those listed as a
+ hard Depends here would cascade-remove this meta-package. ubuntu-desktop
+ itself transitively pulls udisks2, network-manager, etc., which survive
+ apt-get autoremove without needing explicit Depends here.

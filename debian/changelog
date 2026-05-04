@@ -1,3 +1,15 @@
+ubuntu-rockchip-settings (2.1.2~resolute) resolute; urgency=medium
+
+  * control: trim ubuntu-desktop-rockchip.Depends to just ubuntu-desktop +
+    ubuntu-rockchip-settings. The desktop-preinstalled livecd-rootfs hook
+    also runs `apt-get -y purge flash-kernel fwupd`, and listing fwupd as a
+    hard Depends caused that purge to cascade-remove ubuntu-desktop-rockchip
+    just like the cloud-init case in 2.1.1. Server is unaffected because no
+    purge hook runs against it; cloud-init/udisks2/etc. remain Depends of
+    ubuntu-server-rockchip.
+
+ -- clsx524 <clsx524@gmail.com>  Sun, 03 May 2026 23:00:00 +0000
+
 ubuntu-rockchip-settings (2.1.1~resolute) resolute; urgency=medium
 
   * control: drop cloud-init from ubuntu-rockchip-settings.Depends and
