@@ -1,3 +1,15 @@
+ubuntu-rockchip-settings (2.1.1~resolute) resolute; urgency=medium
+
+  * control: drop cloud-init from ubuntu-rockchip-settings.Depends and
+    ubuntu-desktop-rockchip.Depends. The desktop-preinstalled livecd-rootfs
+    hook does `apt-get -y purge cloud-init` (because desktop uses oem-config
+    for first-boot user creation), and the hard Depends caused that purge to
+    cascade-remove ubuntu-rockchip-settings and ubuntu-desktop-rockchip,
+    leaving the desktop image with no meta-package. cloud-init remains a
+    direct Depends of ubuntu-server-rockchip only.
+
+ -- clsx524 <clsx524@gmail.com>  Sun, 03 May 2026 22:30:00 +0000
+
 ubuntu-rockchip-settings (2.1~resolute) resolute; urgency=medium
 
   * debian/ubuntu-rockchip-settings.install: actually ship etc/cloud and
