@@ -9,18 +9,27 @@ Rules-Requires-Root: no
 Package: ubuntu-rockchip-settings
 Architecture: all
 Depends: ${misc:Depends},
-         u-boot-menu
+         u-boot-menu,
+         cloud-init
 Description: Ubuntu system settings for Rockchip devices
  Default system configuration for Ubuntu on Rockchip single-board computers.
- Includes network defaults, boot configuration, and system settings.
+ Includes cloud-init NoCloud pinning, u-boot-menu defaults and other settings.
 
 Package: ubuntu-server-rockchip
 Architecture: all
 Depends: ${misc:Depends},
          ubuntu-rockchip-settings,
-         ubuntu-server
+         ubuntu-server,
+         cloud-init,
+         openssh-server,
+         udisks2,
+         fwupd,
+         modemmanager,
+         network-manager
 Description: Ubuntu Server for Rockchip devices
  Meta-package for Ubuntu Server on Rockchip single-board computers.
+ Pulls cloud-init and other base server packages explicitly so apt-get
+ autoremove does not strip them after the rockchip kernel is installed.
 
 Package: linux-rockchip
 Architecture: all
@@ -32,6 +41,14 @@ Package: ubuntu-desktop-rockchip
 Architecture: all
 Depends: ${misc:Depends},
          ubuntu-rockchip-settings,
-         ubuntu-desktop
+         ubuntu-desktop,
+         cloud-init,
+         openssh-server,
+         udisks2,
+         fwupd,
+         modemmanager,
+         network-manager
 Description: Ubuntu Desktop for Rockchip devices
  Meta-package for Ubuntu Desktop on Rockchip single-board computers.
+ Pulls cloud-init and other base desktop packages explicitly so apt-get
+ autoremove does not strip them after the rockchip kernel is installed.

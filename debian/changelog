@@ -1,3 +1,15 @@
+ubuntu-rockchip-settings (2.1~resolute) resolute; urgency=medium
+
+  * debian/ubuntu-rockchip-settings.install: actually ship etc/cloud and
+    usr/lib/u-boot-menu config files (previously the package was empty).
+  * 99-rockchip.cfg: pin NoCloud to fs_label CIDATA so cloud-init finds the
+    seed without timing out on EC2/Azure/GCE probes.
+  * control: add cloud-init, openssh-server, udisks2, fwupd, modemmanager and
+    network-manager as explicit Depends on ubuntu-{server,desktop}-rockchip
+    so apt-get autoremove (run after kernel install) does not strip them.
+
+ -- clsx524 <clsx524@gmail.com>  Sun, 03 May 2026 19:30:00 +0000
+
 ubuntu-rockchip-settings (2.0~resolute) resolute; urgency=medium
 
   * Initial release for Ubuntu 26.04 LTS (Resolute Raccoon)

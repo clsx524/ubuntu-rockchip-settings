@@ -1,0 +1,2 @@
+etc/cloud/cloud.cfg.d/99-rockchip.cfg etc/cloud/cloud.cfg.d/
+usr/lib/u-boot-menu/conf.d/rockchip.conf usr/lib/u-boot-menu/conf.d/
