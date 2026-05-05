@@ -25,7 +25,6 @@ Depends: ${misc:Depends},
          cloud-init,
          openssh-server,
          udisks2,
-         fwupd,
          modemmanager,
          network-manager
 Description: Ubuntu Server for Rockchip devices
